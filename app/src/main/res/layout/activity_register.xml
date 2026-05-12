@@ -40,7 +40,7 @@
             android:id="@+id/imgLogo"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:src="@mipmap/ic_launcher_round"
+            android:src="@drawable/logobanco"
             android:contentDescription="Logo"
             app:layout_constraintTop_toBottomOf="@id/btnBack"
             app:layout_constraintStart_toStartOf="parent"

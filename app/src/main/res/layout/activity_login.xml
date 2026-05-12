@@ -14,7 +14,7 @@
             android:id="@+id/imgLogo"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:src="@mipmap/ic_launcher_round"
+            android:src="@drawable/logobanco"
             android:contentDescription="Logo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
