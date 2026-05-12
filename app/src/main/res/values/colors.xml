@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primaryDark">#1E40AF</color>
+    <color name="primary">#2563EB</color>
+    <color name="primaryLight">#3B82F6</color>
+    <color name="success">#10B981</color>
+    <color name="textPrimary">#0F172A</color>
+    <color name="textSecondary">#64748B</color>
+    <color name="background">#F8FAFC</color>
+    <color name="border">#E2E8F0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="errorLight">#FEF2F2</color>
+    <color name="errorBorder">#FECACA</color>
+    <color name="errorText">#DC2626</color>
+    <color name="searchBg">#F1F5F9</color>
+    <color name="transferCard">#EFF6FF</color>
+    <color name="successLight">#ECFDF5</color>
 </resources>

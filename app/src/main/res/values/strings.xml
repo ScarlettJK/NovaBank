@@ -1,3 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">NovaBank</string>
+    <string name="hint_email">tucorreo@email.com</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="hint_nombre">Nombre(s)</string>
+    <string name="hint_apellidos">Apellidos</string>
+    <string name="hint_celular">Número de celular</string>
+    <string name="hint_fecha">Fecha de nacimiento</string>
+    <string name="hint_concepto">Concepto (opcional)</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="btn_registrarse">Registrarse</string>
+    <string name="btn_continuar">Continuar</string>
+    <string name="btn_transferir">Transferir</string>
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_beneficiarios">Beneficiarios</string>
+    <string name="nav_cuenta">Cuenta</string>
+    <string name="saldo_label">Saldo disponible</string>
+    <string name="cuenta_label">MXN · Cuenta ****8421</string>
+    <string name="empty_movimientos">Aún no tienes movimientos</string>
+    <string name="empty_beneficiarios">No tienes beneficiarios</string>
 </resources>
