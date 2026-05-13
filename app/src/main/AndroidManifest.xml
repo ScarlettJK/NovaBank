@@ -21,6 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".DatosPersonalesActivity" />
+        <activity android:name=".HomeActivity" />
+
     </application>
 
 </manifest>
