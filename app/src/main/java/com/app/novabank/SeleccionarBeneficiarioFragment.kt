@@ -32,13 +32,9 @@ class SeleccionarBeneficiarioFragment : Fragment() {
             beneficiarios,
             mode = AdapterMode.SELECT,
             onSelect = { b ->
-                val bundle = Bundle().apply {
-                    putInt("id", b.id)
-                    putString("nombre", b.nombre)
-                    putString("banco", b.banco)
-                }
-
-                findNavController().navigate(R.id.montoConceptoFragment, bundle)
+                val action = SeleccionarBeneficiarioFragmentDirections
+                    .actionSeleccionarAMonto(b.id, b.nombre, b.banco)
+                findNavController().navigate(action)
             }
         )
 
@@ -48,3 +44,4 @@ class SeleccionarBeneficiarioFragment : Fragment() {
 
     override fun onDestroyView() { super.onDestroyView(); _binding = null }
 }
+

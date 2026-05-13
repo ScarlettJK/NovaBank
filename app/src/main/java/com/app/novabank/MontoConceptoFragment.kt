@@ -15,9 +15,7 @@ class MontoConceptoFragment : Fragment() {
 
     private var _binding: FragmentMontoConceptoBinding? = null
     private val binding get() = _binding!!
-    val beneficiarioId = arguments?.getInt("id") ?: 0
-    val nombre = arguments?.getString("nombre") ?: ""
-    val banco = arguments?.getString("banco") ?: ""
+    private val args: MontoConceptoFragmentArgs by navArgs()
     private val saldoDisponible = 12450.75
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -29,10 +27,12 @@ class MontoConceptoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Mostrar datos del beneficiario recibidos por argumento
-        binding.tvBeneficiarioNombre.text = nombre
-        binding.tvBeneficiarioBanco.text = banco
+        binding.tvBeneficiarioNombre.text = args.beneficiarioNombre
+        binding.tvBeneficiarioBanco.text  = args.beneficiarioBanco
+
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
         binding.cardBeneficiarioSeleccionado.setOnClickListener { findNavController().popBackStack() }
+
 
         // ChipGroup: autocompletar monto
         val montos = mapOf("$500" to "500", "$1,000" to "1000", "$1,500" to "1500", "$5K" to "5000")
@@ -59,7 +59,7 @@ class MontoConceptoFragment : Fragment() {
         binding.btnTransferir.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Confirmar transferencia")
-                .setMessage("¿Transferir ${binding.btnTransferir.text} a $nombre?")
+                .setMessage("¿Transferir ${binding.btnTransferir.text} a ${args.beneficiarioNombre}?")
                 .setPositiveButton("Transferir") { _, _ ->
                     Snackbar.make(binding.root, "Transferencia realizada con éxito ✓", Snackbar.LENGTH_LONG).show()
                     requireActivity().finish()
