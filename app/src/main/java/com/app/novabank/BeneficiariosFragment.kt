@@ -32,7 +32,9 @@ class BeneficiariosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = BeneficiarioAdapter(
+        lateinit var adapter: BeneficiarioAdapter
+
+        adapter = BeneficiarioAdapter(
             listaBeneficiarios,
             mode = AdapterMode.NORMAL,
             onDelete = { b ->
