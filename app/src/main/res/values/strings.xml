@@ -20,4 +20,6 @@
     <string name="cuenta_label">MXN · Cuenta ****8421</string>
     <string name="empty_movimientos">Aún no tienes movimientos</string>
     <string name="empty_beneficiarios">No tienes beneficiarios</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
