@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.app.novabank" />
+                  <option name="mobileSdkAppId" value="1:627349879063:android:c13c06730a8b353d7f1f52" />
+                  <option name="projectId" value="novabank-ccab3" />
+                  <option name="projectNumber" value="627349879063" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

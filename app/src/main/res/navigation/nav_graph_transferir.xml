@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_transferir"
+    app:startDestination="@id/seleccionarBeneficiarioFragment">
+
+    <fragment
+        android:id="@+id/seleccionarBeneficiarioFragment"
+        android:name="com.app.novabank.SeleccionarBeneficiarioFragment"
+        android:label="Transferir"
+        tools:layout="@layout/fragment_seleccionar_beneficiario">
+        <action
+            android:id="@+id/action_seleccionar_a_monto"
+            app:destination="@id/montoConceptoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/montoConceptoFragment"
+        android:name="com.app.novabank.MontoConceptoFragment"
+        android:label="Transferir"
+        tools:layout="@layout/fragment_monto_concepto">
+        <argument
+            android:name="beneficiarioId"
+            app:argType="integer" />
+        <argument
+            android:name="beneficiarioNombre"
+            app:argType="string" />
+        <argument
+            android:name="beneficiarioBanco"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
