@@ -37,7 +37,7 @@
         android:id="@+id/imgAvatar"
         android:layout_width="44dp"
         android:layout_height="44dp"
-        android:src="@mipmap/ic_launcher_round"
+        android:src="@drawable/ic_profile"
         android:scaleType="centerCrop"
         app:shapeAppearanceOverlay="@style/CircleImageStyle"
         app:layout_constraintEnd_toEndOf="parent"

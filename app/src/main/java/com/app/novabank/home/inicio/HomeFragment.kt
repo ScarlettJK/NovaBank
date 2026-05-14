@@ -1,9 +1,12 @@
-package com.app.novabank
+package com.app.novabank.home.inicio
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.app.novabank.home.transferencia.TransferirActivity
 import com.app.novabank.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
