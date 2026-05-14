@@ -18,9 +18,9 @@ class BeneficiariosFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val listaBeneficiarios = mutableListOf(
-        Beneficiario(1, "Juan Carlos López", "BBVA", "****4521"),
-        Beneficiario(2, "Ana Sofía Méndez", "Banorte", "****8832"),
-        Beneficiario(3, "Roberto García", "Santander", "****1209")
+        Beneficiario("", "Juan Carlos López", "BBVA", "****4521"),
+        Beneficiario("", "Ana Sofía Méndez", "Banorte", "****8832"),
+        Beneficiario("", "Roberto García", "Santander", "****1209")
     )
 
     override fun onCreateView(

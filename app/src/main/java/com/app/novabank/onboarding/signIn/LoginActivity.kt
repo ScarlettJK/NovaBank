@@ -6,57 +6,58 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.util.Patterns
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.app.novabank.R
-import com.app.novabank.onboarding.signUp.RegisterActivity
+import com.app.novabank.data.repository.AuthRepository
 import com.app.novabank.databinding.ActivityLoginBinding
 import com.app.novabank.home.HomeActivity
+import com.app.novabank.onboarding.signUp.RegisterActivity
+import com.app.novabank.utils.Resource
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private val auth = AuthRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Texto enriquecido en tvGoToRegister
-        val spannable = SpannableString("¿No tienes cuenta? Regístrate")
-        spannable.setSpan(
-            ForegroundColorSpan(ContextCompat.getColor(this, R.color.primary)),
-            19, spannable.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        binding.tvGoToRegister.text = spannable
+        // Sesión activa → ir directo a Home
+        if (auth.getUsuarioActual() != null) { irAHome(); return }
+
+        val sp = SpannableString("¿No tienes cuenta? Regístrate")
+        sp.setSpan(ForegroundColorSpan(ContextCompat.getColor(this, R.color.primary)), 19, sp.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.tvGoToRegister.text = sp
 
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.editText?.text.toString().trim()
             val pass  = binding.etPassword.editText?.text.toString()
-
-            // Limpiar errores previos
-            binding.etEmail.error    = null
-            binding.etPassword.error = null
-
-            var valid = true
-            if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                binding.etEmail.error = "Email inválido"
-                valid = false
-            }
-            if (pass.length < 8) {
-                binding.etPassword.error = "Mínimo 8 caracteres"
-                valid = false
-            }
-            if (valid) {
-                // Navegar a Home limpiando el back stack
-                val intent = Intent(this, HomeActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
+            binding.etEmail.error = null; binding.etPassword.error = null
+            var ok = true
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) { binding.etEmail.error = "Email inválido"; ok = false }
+            if (pass.length < 8) { binding.etPassword.error = "Mínimo 8 caracteres"; ok = false }
+            if (ok) doLogin(email, pass)
         }
 
-        binding.tvGoToRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+        binding.tvGoToRegister.setOnClickListener { startActivity(Intent(this, RegisterActivity::class.java)) }
+    }
+
+    private fun doLogin(email: String, pass: String) {
+        binding.btnLogin.isEnabled = false
+        lifecycleScope.launch {
+            when (val r = auth.login(email, pass)) {
+                is Resource.Success -> irAHome()
+                is Resource.Error   -> { binding.btnLogin.isEnabled = true; Toast.makeText(this@LoginActivity, r.message, Toast.LENGTH_LONG).show() }
+                else -> {}
+            }
         }
     }
+
+    private fun irAHome() = startActivity(Intent(this, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
 }
