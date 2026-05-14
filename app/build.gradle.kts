@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.firebase.google.services)
 }
 
 android {
@@ -50,4 +51,21 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.google.android.material:material:1.11.0")
+    // Firebase BOM: gestiona versiones automáticamente
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)         // Authentication
+    implementation(libs.firebase.firestore)    // Firestore Database
+
+    // Coroutines (para operaciones asíncronas limpias)
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+
+    // Glide (para cargar imágenes de perfil)
+    implementation(libs.glide)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
+
+

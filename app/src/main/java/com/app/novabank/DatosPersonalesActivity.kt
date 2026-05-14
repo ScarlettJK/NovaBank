@@ -8,6 +8,7 @@ import com.app.novabank.databinding.ActivityDatosPersonalesBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class DatosPersonalesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDatosPersonalesBinding
