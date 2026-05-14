@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "627349879063",
+    "project_id": "novabank-ccab3",
+    "storage_bucket": "novabank-ccab3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627349879063:android:c13c06730a8b353d7f1f52",
+        "android_client_info": {
+          "package_name": "com.app.novabank"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMsMz-QbAYl6dUt2quX9lHVUqGCuA5MNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
