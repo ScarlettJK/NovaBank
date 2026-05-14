@@ -1,12 +1,14 @@
-package com.app.novabank
+package com.app.novabank.onboarding.personal
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.app.novabank.databinding.ActivityDatosPersonalesBinding
+import com.app.novabank.home.HomeActivity
+import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 
 class DatosPersonalesActivity : AppCompatActivity() {
 
@@ -56,4 +58,3 @@ class DatosPersonalesActivity : AppCompatActivity() {
         }
     }
 }
-

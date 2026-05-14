@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.novabank.databinding.FragmentSeleccionarBeneficiarioBinding
+import com.app.novabank.home.beneficiarios.AdapterMode
+import com.app.novabank.home.beneficiarios.Beneficiario
+import com.app.novabank.home.beneficiarios.BeneficiarioAdapter
 
 class SeleccionarBeneficiarioFragment : Fragment() {
 

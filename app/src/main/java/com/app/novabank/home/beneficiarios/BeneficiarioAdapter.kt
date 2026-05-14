@@ -1,6 +1,8 @@
-package com.app.novabank
+package com.app.novabank.home.beneficiarios
 
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.app.novabank.databinding.ItemBeneficiarioBinding

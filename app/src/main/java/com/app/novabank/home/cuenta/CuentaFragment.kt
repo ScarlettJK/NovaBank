@@ -1,12 +1,14 @@
-package com.app.novabank
+package com.app.novabank.home.cuenta
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.app.novabank.onboarding.signIn.LoginActivity
 import com.app.novabank.databinding.FragmentCuentaBinding
-
 
 class CuentaFragment : Fragment() {
 

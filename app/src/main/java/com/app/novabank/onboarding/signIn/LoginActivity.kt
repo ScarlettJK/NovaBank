@@ -1,13 +1,17 @@
-package com.app.novabank
+package com.app.novabank.onboarding.signIn
 
 import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
+import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.app.novabank.R
+import com.app.novabank.onboarding.signUp.RegisterActivity
 import com.app.novabank.databinding.ActivityLoginBinding
+import com.app.novabank.home.HomeActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
             binding.etPassword.error = null
 
             var valid = true
-            if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.etEmail.error = "Email inválido"
                 valid = false
             }

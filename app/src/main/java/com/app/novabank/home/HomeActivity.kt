@@ -1,4 +1,4 @@
-package com.app.novabank
+package com.app.novabank.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

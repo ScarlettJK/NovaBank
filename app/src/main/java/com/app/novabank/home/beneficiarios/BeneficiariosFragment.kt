@@ -1,4 +1,4 @@
-package com.app.novabank
+package com.app.novabank.home.beneficiarios
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.novabank.home.beneficiarios.AdapterMode
+import com.app.novabank.home.beneficiarios.Beneficiario
+import com.app.novabank.home.beneficiarios.BeneficiarioAdapter
 import com.app.novabank.databinding.FragmentBeneficiariosBinding
 
 class BeneficiariosFragment : Fragment() {

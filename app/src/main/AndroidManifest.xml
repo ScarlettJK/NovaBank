@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NovaBank">
         <activity
-            android:name=".LoginActivity"
+            android:name=".onboarding.signIn.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,10 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".DatosPersonalesActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".TransferirActivity" />
+        <activity android:name=".onboarding.signUp.RegisterActivity" />
+        <activity android:name=".onboarding.personal.DatosPersonalesActivity" />
+        <activity android:name=".home.HomeActivity" />
+        <activity android:name=".home.transferencia.TransferirActivity" />
 
     </application>
 

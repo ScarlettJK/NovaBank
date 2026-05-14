@@ -1,4 +1,4 @@
-package com.app.novabank
+package com.app.novabank.home.beneficiarios
 
 data class Beneficiario (
     val id: Int,
