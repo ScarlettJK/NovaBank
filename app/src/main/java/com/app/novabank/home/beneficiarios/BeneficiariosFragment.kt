@@ -1,15 +1,10 @@
 package com.app.novabank.home.beneficiarios
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.app.novabank.home.beneficiarios.AdapterMode
-import com.app.novabank.home.beneficiarios.Beneficiario
-import com.app.novabank.home.beneficiarios.BeneficiarioAdapter
 import com.app.novabank.databinding.FragmentBeneficiariosBinding
 
 class BeneficiariosFragment : Fragment() {
@@ -18,16 +13,12 @@ class BeneficiariosFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val listaBeneficiarios = mutableListOf(
-        Beneficiario("", "Juan Carlos López", "BBVA", "****4521"),
-        Beneficiario("", "Ana Sofía Méndez", "Banorte", "****8832"),
-        Beneficiario("", "Roberto García", "Santander", "****1209")
+        Beneficiario(id = "1", nombre = "Juan Carlos López", banco = "BBVA",      cuentaOculta = "****4521"),
+        Beneficiario(id = "2", nombre = "Ana Sofía Méndez",  banco = "Banorte",   cuentaOculta = "****8832"),
+        Beneficiario(id = "3", nombre = "Roberto García",    banco = "Santander", cuentaOculta = "****1209")
     )
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentBeneficiariosBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -53,26 +44,16 @@ class BeneficiariosFragment : Fragment() {
             }
         )
 
-        binding.rvBeneficiarios.layoutManager =
-            LinearLayoutManager(requireContext())
-
+        binding.rvBeneficiarios.layoutManager = LinearLayoutManager(requireContext())
         binding.rvBeneficiarios.adapter = adapter
-
         actualizarEstado(adapter)
     }
 
     private fun actualizarEstado(adapter: BeneficiarioAdapter) {
         val empty = listaBeneficiarios.isEmpty()
-
-        binding.layoutEmptyBeneficiarios.visibility =
-            if (empty) View.VISIBLE else View.GONE
-
-        binding.rvBeneficiarios.visibility =
-            if (empty) View.GONE else View.VISIBLE
+        binding.layoutEmptyBeneficiarios.visibility = if (empty) View.VISIBLE else View.GONE
+        binding.rvBeneficiarios.visibility = if (empty) View.GONE else View.VISIBLE
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun onDestroyView() { super.onDestroyView(); _binding = null }
 }
