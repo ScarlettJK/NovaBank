@@ -6,16 +6,13 @@ import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.app.novabank.databinding.FragmentMontoConceptoBinding
 import com.google.android.material.snackbar.Snackbar
-
 
 class MontoConceptoFragment : Fragment() {
 
     private var _binding: FragmentMontoConceptoBinding? = null
     private val binding get() = _binding!!
-    private val args: MontoConceptoFragmentArgs by navArgs()
     private val saldoDisponible = 12450.75
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -26,16 +23,17 @@ class MontoConceptoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Mostrar datos del beneficiario recibidos por argumento
-        binding.tvBeneficiarioNombre.text = args.beneficiarioNombre
-        binding.tvBeneficiarioBanco.text  = args.beneficiarioBanco
+        // ← Ahora sí lee los args correctamente
+        val nombre = arguments?.getString("beneficiarioNombre") ?: ""
+        val banco = arguments?.getString("beneficiarioBanco") ?: ""
+
+        binding.tvBeneficiarioNombre.text = nombre
+        binding.tvBeneficiarioBanco.text  = banco
 
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
         binding.cardBeneficiarioSeleccionado.setOnClickListener { findNavController().popBackStack() }
 
-
-        // ChipGroup: autocompletar monto
-        val montos = mapOf("$500" to "500", "$1,000" to "1000", "$1,500" to "1500", "$5K" to "5000")
+        val montos = mapOf("\$500" to "500", "\$1,000" to "1000", "\$1,500" to "1500", "\$5K" to "5000")
         binding.chipGroupSugeridos.setOnCheckedStateChangeListener { group, _ ->
             val chipId = group.checkedChipId
             if (chipId != View.NO_ID) {
@@ -46,7 +44,6 @@ class MontoConceptoFragment : Fragment() {
             }
         }
 
-        // TextWatcher para validar en tiempo real
         binding.etMonto.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val raw = s.toString().replace("$", "").replace(",", "").trim()
@@ -59,7 +56,7 @@ class MontoConceptoFragment : Fragment() {
         binding.btnTransferir.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Confirmar transferencia")
-                .setMessage("¿Transferir ${binding.btnTransferir.text} a ${args.beneficiarioNombre}?")
+                .setMessage("¿Transferir ${binding.btnTransferir.text} a $nombre?")
                 .setPositiveButton("Transferir") { _, _ ->
                     Snackbar.make(binding.root, "Transferencia realizada con éxito ✓", Snackbar.LENGTH_LONG).show()
                     requireActivity().finish()

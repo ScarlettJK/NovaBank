@@ -15,10 +15,11 @@ class SeleccionarBeneficiarioFragment : Fragment() {
     private var _binding: FragmentSeleccionarBeneficiarioBinding? = null
     private val binding get() = _binding!!
 
+    // id ahora es String — compatible con Firestore
     private val beneficiarios = mutableListOf(
-        Beneficiario(1, "Juan Carlos López", "BBVA", "****4521"),
-        Beneficiario(2, "Ana Sofía Méndez", "Banorte", "****8832"),
-        Beneficiario(3, "Roberto García", "Santander", "****1209")
+        Beneficiario(id = "1", nombre = "Juan Carlos López", banco = "BBVA",      cuentaOculta = "****4521"),
+        Beneficiario(id = "2", nombre = "Ana Sofía Méndez",  banco = "Banorte",   cuentaOculta = "****8832"),
+        Beneficiario(id = "3", nombre = "Roberto García",    banco = "Santander", cuentaOculta = "****1209")
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -35,9 +36,12 @@ class SeleccionarBeneficiarioFragment : Fragment() {
             beneficiarios,
             mode = AdapterMode.SELECT,
             onSelect = { b ->
-                val action = SeleccionarBeneficiarioFragmentDirections
-                    .actionSeleccionarAMonto(b.id, b.nombre, b.banco)
-                findNavController().navigate(action)
+                val bundle = Bundle().apply {
+                    putString("beneficiarioId",     b.id)
+                    putString("beneficiarioNombre", b.nombre)
+                    putString("beneficiarioBanco",  b.banco)
+                }
+                findNavController().navigate(R.id.action_seleccionar_a_monto, bundle)
             }
         )
 
@@ -47,4 +51,3 @@ class SeleccionarBeneficiarioFragment : Fragment() {
 
     override fun onDestroyView() { super.onDestroyView(); _binding = null }
 }
-

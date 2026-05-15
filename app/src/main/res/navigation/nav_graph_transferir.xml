@@ -22,13 +22,16 @@
         tools:layout="@layout/fragment_monto_concepto">
         <argument
             android:name="beneficiarioId"
-            app:argType="integer" />
+            app:argType="string"
+            android:defaultValue="" />
         <argument
             android:name="beneficiarioNombre"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="" />
         <argument
             android:name="beneficiarioBanco"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="" />
     </fragment>
 
 </navigation>
