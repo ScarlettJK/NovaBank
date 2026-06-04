@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.curso.banca"
+    namespace = "com.app.banca"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
