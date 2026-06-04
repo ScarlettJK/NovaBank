@@ -6,17 +6,17 @@
     app:startDestination="@id/nav_inicio">
 
     <fragment android:id="@+id/nav_inicio"
-        android:name="com.app.novabank.home.inicio.HomeFragment"
+        android:name="com.app.banca.home.inicio.HomeFragment"
         android:label="Inicio"
         tools:layout="@layout/fragment_home" />
 
     <fragment android:id="@+id/nav_beneficiarios"
-        android:name="com.app.novabank.home.beneficiarios.BeneficiariosFragment"
+        android:name="com.app.banca.home.beneficiarios.BeneficiariosFragment"
         android:label="Beneficiarios"
         tools:layout="@layout/fragment_beneficiarios" />
 
     <fragment android:id="@+id/nav_cuenta"
-        android:name="com.app.novabank.home.cuenta.CuentaFragment"
+        android:name="com.app.banca.home.cuenta.CuentaFragment"
         android:label="Cuenta"
         tools:layout="@layout/fragment_cuenta" />
 

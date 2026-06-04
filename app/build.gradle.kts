@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.app.novabank"
+    namespace = "com.curso.banca"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.app.novabank"
+        applicationId = "com.curso.banca"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -62,6 +62,15 @@ dependencies {
 
     // Glide (para cargar imágenes de perfil)
     implementation(libs.glide)
+
+    // Retrofit — para consumir la API REST
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+// Necesario para el AuthInterceptor
+    implementation("com.google.android.gms:play-services-tasks:18.2.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
