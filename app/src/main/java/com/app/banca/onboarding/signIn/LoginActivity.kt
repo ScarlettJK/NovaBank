@@ -1,4 +1,4 @@
-package com.app.banca.onboarding.signIn
+package com.curso.banca.onboarding.signIn
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,12 +10,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import com.app.banca.R
-import com.app.banca.data.repository.AuthRepository
-import com.app.banca.databinding.ActivityLoginBinding
-import com.app.banca.home.HomeActivity
-import com.app.banca.onboarding.signUp.RegisterActivity
-import com.app.banca.utils.Resource
+import com.curso.banca.R
+import com.curso.banca.data.repository.AuthRepository
+import com.curso.banca.databinding.ActivityLoginBinding
+import com.curso.banca.home.HomeActivity
+import com.curso.banca.onboarding.signUp.RegisterActivity
+import com.curso.banca.utils.Resource
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {

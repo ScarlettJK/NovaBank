@@ -1,6 +1,6 @@
-package com.app.banca.data.repository
+package com.curso.banca.data.repository
 
-import com.app.banca.utils.Resource
+import com.curso.banca.utils.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.tasks.await

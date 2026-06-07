@@ -1,11 +1,11 @@
-package com.app.banca.home.beneficiarios
+package com.curso.banca.home.beneficiarios
 
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.app.banca.databinding.FragmentBeneficiariosBinding
+import com.curso.banca.databinding.FragmentBeneficiariosBinding
 
 class BeneficiariosFragment : Fragment() {
 

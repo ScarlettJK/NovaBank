@@ -1,4 +1,4 @@
-package com.app.banca.utils
+package com.curso.banca.utils
 
 sealed class Resource<T> {
     class Loading<T> : Resource<T>()

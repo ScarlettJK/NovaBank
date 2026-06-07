@@ -1,4 +1,4 @@
-package com.app.banca.data.repository
+package com.curso.banca.data.repository
 
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await

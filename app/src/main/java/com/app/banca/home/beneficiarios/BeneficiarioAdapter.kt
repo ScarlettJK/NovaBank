@@ -1,11 +1,11 @@
-package com.app.banca.home.beneficiarios
+package com.curso.banca.home.beneficiarios
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
-import com.app.banca.databinding.ItemBeneficiarioBinding
+import com.curso.banca.databinding.ItemBeneficiarioBinding
 
 enum class AdapterMode { NORMAL, SELECT }
 

@@ -1,4 +1,4 @@
-package com.app.banca.onboarding.signUp
+package com.curso.banca.onboarding.signUp
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,11 +10,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import com.app.banca.R
-import com.app.banca.data.repository.AuthRepository
-import com.app.banca.databinding.ActivityRegisterBinding
-import com.app.banca.onboarding.personal.DatosPersonalesActivity
-import com.app.banca.utils.Resource
+import com.curso.banca.R
+import com.curso.banca.data.repository.AuthRepository
+import com.curso.banca.databinding.ActivityRegisterBinding
+import com.curso.banca.onboarding.personal.DatosPersonalesActivity
+import com.curso.banca.utils.Resource
 import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {

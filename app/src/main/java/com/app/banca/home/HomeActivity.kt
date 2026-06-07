@@ -1,14 +1,16 @@
-package com.app.banca.home
+package com.curso.banca.home
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.app.banca.R
-import com.app.banca.data.repository.AuthRepository
-import com.app.banca.databinding.ActivityHomeBinding
-import com.app.banca.onboarding.signIn.LoginActivity
+
+import com.curso.banca.data.repository.AuthRepository
+
+import com.curso.banca.onboarding.signIn.LoginActivity
+import com.curso.banca.R
+import com.curso.banca.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 

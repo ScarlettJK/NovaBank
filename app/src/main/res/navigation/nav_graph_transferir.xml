@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/seleccionarBeneficiarioFragment"
-        android:name="com.app.banca.SeleccionarBeneficiarioFragment"
+        android:name="com.curso.banca.SeleccionarBeneficiarioFragment"
         android:label="Transferir"
         tools:layout="@layout/fragment_seleccionar_beneficiario">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/montoConceptoFragment"
-        android:name="com.app.banca.MontoConceptoFragment"
+        android:name="com.curso.banca.MontoConceptoFragment"
         android:label="Transferir"
         tools:layout="@layout/fragment_monto_concepto">
         <argument

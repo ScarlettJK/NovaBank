@@ -1,4 +1,4 @@
-package com.app.banca
+package com.curso.banca
 
 import android.os.Bundle
 import android.text.*
@@ -6,7 +6,8 @@ import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.app.banca.databinding.FragmentMontoConceptoBinding
+import com.curso.banca.R
+import com.curso.banca.databinding.FragmentMontoConceptoBinding
 import com.google.android.material.snackbar.Snackbar
 
 class MontoConceptoFragment : Fragment() {

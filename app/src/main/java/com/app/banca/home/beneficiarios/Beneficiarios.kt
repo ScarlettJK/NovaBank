@@ -1,4 +1,4 @@
-package com.app.banca.home.beneficiarios
+package com.curso.banca.home.beneficiarios
 
 data class Beneficiario(
     val id: String = "",

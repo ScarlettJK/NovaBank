@@ -1,4 +1,4 @@
-package com.app.banca.home.inicio
+package com.curso.banca.home.inicio
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.app.banca.home.transferencia.TransferirActivity
-import com.app.banca.databinding.FragmentHomeBinding
+import com.curso.banca.home.transferencia.TransferirActivity
+import com.curso.banca.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 

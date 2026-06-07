@@ -1,14 +1,14 @@
-package com.app.banca.onboarding.personal
+package com.curso.banca.onboarding.personal
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.app.banca.data.repository.Usuario
-import com.app.banca.data.repository.UsuarioRepository
-import com.app.banca.databinding.ActivityDatosPersonalesBinding
-import com.app.banca.home.HomeActivity
+import com.curso.banca.data.repository.Usuario
+import com.curso.banca.data.repository.UsuarioRepository
+import com.curso.banca.databinding.ActivityDatosPersonalesBinding
+import com.curso.banca.home.HomeActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
