@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +12,7 @@
         android:padding="24dp"
         android:paddingTop="70dp">
 
+        <!-- Título -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,6 +22,16 @@
             android:textColor="@color/textPrimary"
             android:textSize="22sp"
             android:textStyle="bold" />
+
+        <!-- ProgressBar de carga -->
+        <ProgressBar
+            android:id="@+id/progressBarCarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:visibility="gone" />
 
         <!-- Avatar -->
         <com.google.android.material.imageview.ShapeableImageView
@@ -34,17 +44,19 @@
             android:src="@mipmap/ic_launcher_round"
             app:shapeAppearanceOverlay="@style/CircleImageStyle" />
 
+        <!-- Nombre del usuario (DINÁMICO) -->
         <TextView
             android:id="@+id/tvUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:gravity="center"
-            android:text="María González R."
+            android:text="Cargando..."
             android:textColor="@color/textPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Email del usuario (DINÁMICO) -->
         <TextView
             android:id="@+id/tvUserEmail"
             android:layout_width="match_parent"
@@ -56,7 +68,7 @@
             android:textColor="@color/textSecondary"
             android:textSize="12sp" />
 
-        <!-- Card información personal -->
+        <!-- Card: Información personal -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardPersonalInfo"
             android:layout_width="match_parent"
@@ -71,6 +83,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
+                <!-- NOMBRE COMPLETO -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,14 +101,16 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/tvNombreCompleto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:text="María González Ramírez"
+                    android:text="[Cargando...]"
                     android:textColor="@color/textPrimary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
+                <!-- CELULAR -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,14 +119,16 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/tvCelularValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:text="+52 55 1234 5678"
+                    android:text="[Cargando...]"
                     android:textColor="@color/textPrimary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
+                <!-- FECHA DE NACIMIENTO -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,16 +137,18 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/tvFechaNacValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15 de marzo de 1995"
+                    android:text="[Cargando...]"
                     android:textColor="@color/textPrimary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Configuración -->
+        <!-- Configuración (placeholder) -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnConfiguracion"
             android:layout_width="match_parent"
@@ -196,6 +215,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Versión -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -207,4 +227,3 @@
 
     </LinearLayout>
 </ScrollView>
-
