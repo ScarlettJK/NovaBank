@@ -1,4 +1,4 @@
-package com.app.banca.data.repository
+package com.curso.banca.data.repository
 
 import com.curso.banca.network.AccountResponse
 import com.curso.banca.network.RetrofitClient

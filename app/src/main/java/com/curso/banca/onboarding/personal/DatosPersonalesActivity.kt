@@ -53,9 +53,16 @@ class DatosPersonalesActivity : AppCompatActivity() {
         binding.btnContinuar.isEnabled = false
         lifecycleScope.launch {
             try {
-                usuarioRepo.guardar(Usuario(uid = uid, nombre = nombre, apellidos = apellidos,
-                    email = email, celular = celular, fechaNacimiento = fecha,
-                    fechaCreacion = System.currentTimeMillis()))
+                usuarioRepo.guardar(
+                    Usuario(
+                        uid = uid,
+                        firstName = nombre,
+                        lastName = apellidos,
+                        fullName = "$nombre $apellidos",
+                        phone = celular,
+                        birthdate = fecha
+                )
+                )
                 startActivity(Intent(this@DatosPersonalesActivity, HomeActivity::class.java)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
             } catch (e: Exception) {

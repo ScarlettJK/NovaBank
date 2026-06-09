@@ -1,4 +1,4 @@
-package com.app.banca.network
+package com.curso.banca.network
 
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.FirebaseAuth

@@ -1,4 +1,4 @@
-package com.app.banca.network
+package com.curso.banca.network
 
 import com.google.gson.annotations.SerializedName
 
@@ -16,6 +16,32 @@ data class AccountResponse(
     val balance: Long,       // En centavos: 5000 = $50.00
     val createdAt: FirebaseTimestamp?
 )
+
+//Beneficiarios (GET /beneficiaries)
+data class BeneficiaryRequest(
+    val name: String,
+    val lastName: String,
+    val accountNumber: String,
+    val alias: String
+)
+
+//Beneficiarios (CREATE /beneficiaries)
+data class BeneficiaryResponse(
+    val id: String,
+    val ownerId: String,
+    val name: String,
+    val lastName: String,
+    val accountNumber: String,
+    val alias: String
+)
+
+//Beneficiarios (DELETE /beneficiaries/{id})
+data class DeleteResponse(
+    val id: String,
+    val deleted: Boolean
+)
+
+
 
 // Cada movimiento de la cuenta (GET /transaction)
 data class TransactionResponse(

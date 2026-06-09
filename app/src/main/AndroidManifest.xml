@@ -35,6 +35,14 @@
             android:name=".home.HomeActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".home.transferencia.TransferirActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".home.beneficiarios.AddBeneficiarioActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

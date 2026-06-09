@@ -5,18 +5,16 @@ import kotlinx.coroutines.tasks.await
 
 data class Usuario(
     val uid: String = "",
-    val nombre: String = "",
-    val apellidos: String = "",
-    val email: String = "",
-    val celular: String = "",
-    val fechaNacimiento: String = "",
-    val rol: String = "cliente",
-    val estado: String = "activo",
-    val fechaCreacion: Long = 0L
+    val firstName: String = "",
+    val lastName: String = "",
+    val fullName: String = "",
+    val phone: String = "",
+    val birthdate: String = ""
 )
 
 class UsuarioRepository {
-    private val db = FirebaseFirestore.getInstance().collection("usuarios")
+    private val db = FirebaseFirestore.getInstance()
+        .collection("users")
 
     suspend fun guardar(usuario: Usuario) {
         db.document(usuario.uid).set(usuario).await()

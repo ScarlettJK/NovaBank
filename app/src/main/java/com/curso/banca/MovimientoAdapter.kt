@@ -1,6 +1,5 @@
-package com.app.banca
+package com.curso.banca
 
-import com.curso.banca.R
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.app.banca.network.TransactionResponse
+import com.curso.banca.network.TransactionResponse
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*

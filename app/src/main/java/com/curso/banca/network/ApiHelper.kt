@@ -1,4 +1,4 @@
-package com.app.banca.network
+package com.curso.banca.network
 import com.google.gson.Gson
 import retrofit2.HttpException
 

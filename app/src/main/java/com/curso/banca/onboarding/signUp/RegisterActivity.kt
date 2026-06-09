@@ -16,7 +16,7 @@ import com.curso.banca.databinding.ActivityRegisterBinding
 import com.curso.banca.onboarding.personal.DatosPersonalesActivity
 import com.curso.banca.utils.Resource
 import kotlinx.coroutines.launch
-import com.app.banca.data.repository.BankRepository
+import com.curso.banca.data.repository.BankRepository
 
 class RegisterActivity : AppCompatActivity() {
 

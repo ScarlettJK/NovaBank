@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.curso.banca.databinding.FragmentCuentaBinding
 import com.curso.banca.onboarding.signIn.LoginActivity
 import kotlinx.coroutines.launch
+import com.google.firebase.auth.FirebaseAuth
 
 class CuentaFragment : Fragment() {
 
@@ -62,17 +63,23 @@ class CuentaFragment : Fragment() {
     }
 
     private fun mostrarDatos(usuario: com.curso.banca.data.repository.Usuario) {
+
         binding.progressBarCarga.visibility = View.GONE
-        binding.cardPersonalInfo.visibility  = View.VISIBLE
+        binding.cardPersonalInfo.visibility = View.VISIBLE
 
-        // Header
-        binding.tvUserName.text  = "${usuario.nombre} ${usuario.apellidos}".trim()
-        binding.tvUserEmail.text = usuario.email
+        binding.tvUserName.text = usuario.fullName
 
-        // Card de información personal — acceso directo por View Binding
-        binding.tvNombreCompleto.text = "${usuario.nombre} ${usuario.apellidos}".trim()
-        binding.tvCelularValue.text   = usuario.celular.ifEmpty { "No registrado" }
-        binding.tvFechaNacValue.text  = usuario.fechaNacimiento.ifEmpty { "No registrada" }
+        binding.tvUserEmail.text =
+            FirebaseAuth.getInstance().currentUser?.email ?: ""
+
+        binding.tvNombreCompleto.text =
+            usuario.fullName.ifEmpty { "No registrado" }
+
+        binding.tvCelularValue.text =
+            usuario.phone.ifEmpty { "No registrado" }
+
+        binding.tvFechaNacValue.text =
+            usuario.birthdate.ifEmpty { "No registrada" }
     }
 
     private fun mostrarSinDatos() {

@@ -6,13 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.curso.banca.home.transferencia.TransferirActivity
 import com.curso.banca.databinding.FragmentHomeBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.curso.banca.MovimientoAdapter
+import com.curso.banca.network.RetrofitClient
+import com.curso.banca.network.apiCall
+import kotlinx.coroutines.launch
+import android.widget.Toast
+import java.text.NumberFormat
+import java.util.Locale
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var adapter: MovimientoAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -25,6 +35,13 @@ class HomeFragment : Fragment() {
         // El RecyclerView está vacío, mostramos el empty state
         binding.layoutEmptyMovimientos.visibility = View.VISIBLE
         binding.rvMovimientos.visibility = View.GONE
+
+        adapter = MovimientoAdapter(emptyList())
+
+        binding.rvMovimientos.layoutManager =
+            LinearLayoutManager(requireContext())
+
+        binding.rvMovimientos.adapter = adapter
 
         binding.btnTransferir.setOnClickListener {
             startActivity(Intent(requireContext(), TransferirActivity::class.java))

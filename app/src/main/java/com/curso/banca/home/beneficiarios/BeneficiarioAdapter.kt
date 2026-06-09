@@ -26,6 +26,8 @@ class BeneficiarioAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val item = lista[position]
+
+
         holder.b.tvNombre.text = item.nombre
         holder.b.tvBanco.text  = "${item.banco} · ${item.cuentaOculta}"
         // Iniciales del nombre
@@ -36,6 +38,9 @@ class BeneficiarioAdapter(
             holder.b.btnMore.visibility = View.GONE
             holder.itemView.setOnClickListener { onSelect?.invoke(item) }
         } else {
+            holder.itemView.setOnClickListener {
+                onSelect?.invoke(item)
+            }
             holder.b.btnMore.visibility = View.VISIBLE
             holder.b.btnMore.setOnClickListener { v ->
                 val popup = PopupMenu(v.context, v)
@@ -50,8 +55,9 @@ class BeneficiarioAdapter(
     }
 
     fun actualizar(nuevaLista: List<Beneficiario>) {
-        lista.clear()
-        lista.addAll(nuevaLista)
+
+        this.lista = nuevaLista.toMutableList()
+
         notifyDataSetChanged()
     }
 }
