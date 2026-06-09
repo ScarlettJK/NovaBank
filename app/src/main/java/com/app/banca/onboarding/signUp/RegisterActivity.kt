@@ -16,11 +16,14 @@ import com.curso.banca.databinding.ActivityRegisterBinding
 import com.curso.banca.onboarding.personal.DatosPersonalesActivity
 import com.curso.banca.utils.Resource
 import kotlinx.coroutines.launch
+import com.app.banca.data.repository.BankRepository
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private val auth = AuthRepository()
+
+    private val bankRepository = BankRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +55,25 @@ class RegisterActivity : AppCompatActivity() {
         lifecycleScope.launch {
             when (val r = auth.registrar(email, pass)) {
                 is Resource.Success -> {
-                    startActivity(Intent(this@RegisterActivity, DatosPersonalesActivity::class.java).apply {
-                        putExtra("uid", r.data.uid)
-                        putExtra("email", email)
+                    try {
+                        bankRepository.createAccount()
+                    } catch (e: Exception) {
+
+                        android.util.Log.e(
+                            "BANK",
+                            "No se pudo crear la cuenta: ${e.message}"
+                        )
+
+                        // Si la API devuelve account_exists simplemente continuamos.
+                    }
+
+                    startActivity(
+                        Intent(
+                            this@RegisterActivity,
+                            DatosPersonalesActivity::class.java
+                        ).apply {
+                            putExtra("uid", r.data.uid)
+                            putExtra("email", email)
                     })
                     finish()
                 }

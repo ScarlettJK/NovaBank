@@ -29,7 +29,47 @@ class HomeFragment : Fragment() {
         binding.btnTransferir.setOnClickListener {
             startActivity(Intent(requireContext(), TransferirActivity::class.java))
         }
+        cargarCuenta()
+        cargarMovimientos()
     }
+
+    private fun cargarCuenta() {
+        lifecycleScope.launch {
+            apiCall { RetrofitClient.api.getAccount() }
+                .onSuccess { cuenta ->
+                    val fmt = NumberFormat.getCurrencyInstance(Locale("es", "MX"))
+                    binding.tvSaldoMonto.text = fmt.format(cuenta.balance / 100.0)
+                    binding.tvNumeroCuenta.text = "Cuenta: **** ${cuenta.accountNumber.takeLast(4)}"
+                }
+                .onFailure { e ->
+                    Toast.makeText(requireContext(),
+                        "Error al cargar cuenta: ${e.message}",
+                        Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+    private fun cargarMovimientos() {
+        lifecycleScope.launch {
+            apiCall { RetrofitClient.api.getTransactions() }
+                .onSuccess { movimientos ->
+                    if (movimientos.isEmpty()) {
+                        binding.layoutEmptyMovimientos.visibility = View.VISIBLE
+                        binding.rvMovimientos.visibility = View.GONE
+                    } else {
+                        binding.layoutEmptyMovimientos.visibility = View.GONE
+                        binding.rvMovimientos.visibility = View.VISIBLE
+                        adapter.actualizarLista(movimientos)
+                    }
+                }
+                .onFailure { e ->
+                    Toast.makeText(requireContext(),
+                        "Error al cargar movimientos: ${e.message}",
+                        Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
 
     override fun onDestroyView() { super.onDestroyView(); _binding = null }
 }
