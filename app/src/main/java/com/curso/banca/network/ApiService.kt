@@ -30,10 +30,11 @@ interface ApiService {
         @Body body: BeneficiaryRequest
     ): BeneficiaryResponse
 
+    // Response<Unit> tolera respuestas con cuerpo vacío (204) sin que Gson truene
     @DELETE("beneficiaries/{id}")
     suspend fun deleteBeneficiary(
         @Path("id") id: String
-    ): DeleteResponse
+    ): retrofit2.Response<Unit>
 
     @GET("transaction")
     suspend fun getTransactions(): List<TransactionResponse>
