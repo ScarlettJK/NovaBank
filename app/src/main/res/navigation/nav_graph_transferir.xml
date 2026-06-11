@@ -32,6 +32,10 @@
             android:name="beneficiarioBanco"
             app:argType="string"
             android:defaultValue="" />
+        <argument
+            android:name="beneficiarioCuenta"
+            app:argType="string"
+            android:defaultValue="" />
     </fragment>
 
 </navigation>

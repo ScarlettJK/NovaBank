@@ -44,6 +44,7 @@ class SeleccionarBeneficiarioFragment : Fragment() {
                     putString("beneficiarioId", b.id)
                     putString("beneficiarioNombre", b.nombreCompleto)
                     putString("beneficiarioBanco", b.banco)
+                    putString("beneficiarioCuenta", b.cuenta)
                 }
                 findNavController().navigate(R.id.action_seleccionar_a_monto, bundle)
             }

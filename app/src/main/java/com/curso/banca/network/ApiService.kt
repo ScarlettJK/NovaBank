@@ -38,4 +38,16 @@ interface ApiService {
 
     @GET("transaction")
     suspend fun getTransactions(): List<TransactionResponse>
+
+    // Realiza una transferencia a un beneficiario
+    @POST("transaction")
+    suspend fun createTransaction(
+        @Body body: TransactionRequest
+    ): TransactionResponse
+
+    // Fondea la cuenta propia (suma al balance)
+    @PUT("account")
+    suspend fun fundAccount(
+        @Body body: FundRequest
+    ): AccountResponse
 }

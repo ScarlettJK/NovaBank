@@ -54,3 +54,15 @@ data class TransactionResponse(
     val date: FirebaseTimestamp?,
     val direction: String    // "in" = recibiste, "out" = enviaste
 )
+
+// Crear una transferencia (POST /transaction)
+data class TransactionRequest(
+    val toBeneficiaryId: String,  // id del beneficiario destino
+    val amount: Long,             // En centavos: 5000 = $50.00
+    val description: String? = null
+)
+
+// Fondear la cuenta propia (PUT /account)
+data class FundRequest(
+    val amount: Long              // En centavos
+)
